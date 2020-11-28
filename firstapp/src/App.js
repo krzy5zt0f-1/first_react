@@ -1,12 +1,22 @@
-import React from 'react';
-import Tweet from './tweet';
-
+import React, {useState} from 'react';
+import './App.css';
+//making dynamic featurs using useState
 function App() {
-
+const [isRed, setRed] = useState(false);
+const [count, setCount] = useState(0);
+//function to change the count
+const increment =() => {
+  setCount(count + 1);
+}
+//function to change the colour of the count
+const colour = () =>{
+  setRed(!isRed);
+}
 return(
   <div className="app">
-  <Tweet name="Lucky Joe" message="What a great day, I got a new job!" likes="1200"/>
-  <Tweet name="Unlucky Doe" message="Bad luck, I've lost my job today" likes="-1"/>
+  <button onClick={increment}>Increment</button>
+  <button onClick={colour}>Change colour</button>
+  <h1 className={isRed ? "red" : ""}>{count}</h1>
   </div> //jsx
 
 );
